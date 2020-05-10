@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/*
+|-----------------------
+| 	    VARIABLES
+|-----------------------
+|
+*/
+
+/*---------------------------------
+*  Urls vars
+*---------------------------------*/
+
+/*---------------------------------
+*  Colors Vars
+*---------------------------------*/
+$white: #fff;
+$black: #181818;
+$grey: #333333;
+$grey2: #202020;
+$grey3: #9a9a9a;
+$lightgrey : #ccc;
+$lightgrey2 : #eee;
+$whitegrey : #f4f3ef;
+
+$color1: #feb960;       // The MAIN site theme color
+$color2: #333333;       // The SECOND site theme color
+
+
+/*---------------------------------
+ *  Various Vars
+ *---------------------------------*/
+
+// Animation time used for main transition in this site
+$animTime: .3s;
+
+/*---------------------------------
+ *  Basics
+ *---------------------------------*/
+
+// Fonts
+$font: 'Montserrat', 'Arial', sans-serif;
+$font2: 'Kaushan Script', cursive;
+$font3: 'Merriweather', serif;
+
+// Base Font Size, applied to body tag (13px is iso SP)
+$baseFontSize: 16px;
+
+// Headings. For font-size > use pixels, the mixins does the convertion to EM
+$H1FontSize: 25px;     $H1Color:$color1;           $H1FontFamily:$font;
+$H2FontSize: 42px;     $H2Color:$grey;           $H2FontFamily:$font3;
+$H3FontSize: 26px;     $H3Color:$grey;           $H3FontFamily:$font;
+$H4FontSize: 20px;     $H4Color:$grey;           $H4FontFamily:$font;
+$H5FontSize: 16px;     $H5Color:$grey;           $H5FontFamily:$font;
+$H6FontSize: 14px;     $H6Color:$grey;           $H6FontFamily:$font;
+
+
+// Body text color
+$BodyTextColor: $grey;
+
+// Links
+$linkDefault: $color1;
+$linkDefaulthover: $color1;
+
+/*---------------------------------
+ *  Structures
+ *---------------------------------*/
+
+// Site Width
+$siteWidth: 100%;

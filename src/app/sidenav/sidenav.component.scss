@@ -1,0 +1,169 @@
+@import "../../_variables.scss";
+
+aside{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    padding: 20px 0;
+    height: 100%;
+    width:90px;
+    background:$grey;
+    transition:all $animTime ease-in-out;
+    z-index: 999;
+    #menu_btn{
+        position:absolute;
+        bottom: 20px;
+        right: -40px;
+        cursor:pointer;
+        svg{
+            width:30px;
+            height:30px;
+            transform:rotate(90deg);
+            transition:all $animTime ease-in-out;
+            transform-origin: 100% 50%;
+            path{
+                fill:$grey;
+            }
+        }
+    }
+    ul{
+        display:flex;
+        flex-direction:column;
+        list-style: none;
+        margin:0;
+        padding:0;
+        width: 100%;
+        li{
+            a{
+                display:flex;
+                align-items: center;
+                padding:25px;
+                color:$white;
+                text-decoration:none;
+                font-size:18px;
+                text-align:center;
+                border-bottom:1px solid $grey2;
+                transition:all $animTime ease-in-out;
+                white-space: nowrap;
+                overflow:hidden;
+                &:after{
+                    content:"";
+                    position:absolute;
+                    top:50%;
+                    right:0;
+                    margin-top:-10px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 10px 0px 10px 0;
+                    border-color: transparent $whitegrey transparent transparent;
+                    transition:all $animTime ease-in-out;
+                }
+                svg{
+                    width:40px;
+                    path{
+                        fill:$white;
+                        transition:all $animTime ease-in-out;
+                    }
+                }
+                span{
+                    transition: all $animTime ease-in-out;
+                    font-size:0;
+                    transform-origin: 0 50%;
+                    opacity: 0;
+                    margin-left:0;
+                    overflow:hidden;
+                }
+                &:hover,
+                &.active{
+                    color:$color1;
+                    &:after{
+                        border-width: 10px 7px 10px 0;
+                    }
+                    svg{
+                        path{
+                            fill:$color1;
+                        }
+                    }
+                }
+                
+            }
+            &:first-child a{
+                border-top:1px solid $grey2;
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        flex-direction:row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 70px;
+        width: 100%;
+        border-bottom: 1px solid #333;
+        transition:all 1s ease-in-out;
+    }
+    header{
+        h1{
+            padding:20px;
+            a{
+                display:flex;
+                align-items: center;
+                color:$color1;
+                &:hover{
+                    text-decoration: none;
+                }
+                @include media-breakpoint-down(md) {
+                    position:relative;
+                    z-index:10;
+                }
+                img{
+                    max-width:50px;
+                    @include media-breakpoint-down(md) {
+                        max-width:30px;
+                    }
+                }
+                span{
+                    transition: all $animTime ease-in-out;
+                    margin-left:0;
+                    font-size:0;
+                    opacity: 0;
+                    transform-origin: 0 50%;
+                }
+            }
+        }
+    }
+
+    &.open{
+        width:350px;
+        #menu_btn{
+            svg{
+                transform:rotate(180deg);
+            }
+        }
+        header{
+            h1{
+                a{
+                    span{
+                        margin-left:20px;
+                        font-size:25px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        ul{
+            li{
+                a{
+                    span{
+                        margin-left:20px;
+                        font-size:18px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

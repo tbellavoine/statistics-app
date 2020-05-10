@@ -1,0 +1,30 @@
+<header>
+    <h2>Statistiques coronavirus</h2>
+
+    <ul>
+        <li>
+            <a routerLink="dashboard" routerLinkActive="active">
+                <span>Vue d'ensemble</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="worldmap" routerLinkActive="active">
+                <span>Carte</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="definition" routerLinkActive="active">
+                <span>Definition</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="protection" routerLinkActive="active">
+                <span>Protection</span>
+            </a>
+        </li>
+    </ul>
+</header>
+
+<div [@routeAnimations]="prepareRoute(outlet)" >
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
