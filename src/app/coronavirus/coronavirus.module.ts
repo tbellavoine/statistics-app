@@ -14,6 +14,7 @@ import { ProtectionComponent } from '../coronavirus/protection/protection.compon
 import { DefinitionComponent } from '../coronavirus/definition/definition.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -58,6 +59,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { ChartComponent } from './dashboard/chart/chart.component';
+import { TimelineComponent } from './dashboard/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -66,12 +68,14 @@ import { ChartComponent } from './dashboard/chart/chart.component';
     WorldmapComponent,
     ProtectionComponent,
     DefinitionComponent,
-    ChartComponent
+    ChartComponent,
+    TimelineComponent
   ],
   imports: [
     CommonModule,
     CoronavirusRoutingModule,
     HttpClientModule,
+    SimplebarAngularModule,
     FormsModule, 
     ReactiveFormsModule,
     HighchartsChartModule,

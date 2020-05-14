@@ -90,13 +90,25 @@ table{
       }
       +td.mat-cell{
          padding-right: 25px !important;
+         span{
+            display:block;
+            font-size:10px;
+            font-style:italic;
+            &.orange{
+               color:#FFB347;
+            }
+            &.green{
+               color:#B0F2B6;
+            }
+            &.red{
+               color:#C43924;
+            }
+         }
       }
       
    }
-   thead{
-      td{
-         font-weight:400;
-      }
+   th,td{
+      vertical-align: middle !important;
    }
    tbody{
       tr{
@@ -121,8 +133,11 @@ table{
    padding:30px;
    background:$white;
    margin-bottom:30px;
+   &.top{
+      height:175px;
+   }
    header{
-      display:flex;
+      display:flex !important;
       align-items:center;
       justify-content: space-between;
       margin-bottom:20px;
@@ -171,6 +186,7 @@ table{
       }
    }
    .block-content{
+      position:relative;
       display:flex;
       align-items:center;
       justify-content: space-between;
@@ -178,7 +194,7 @@ table{
          margin-top:30px;
       }
       figure {
-         width:140px;
+         width:60px;
          margin:0;
          // border-right:1px solid $lightgrey2;
          svg{
@@ -186,6 +202,7 @@ table{
             height:60px;
          }
       }
+      
       > div{
          padding-left:40px;
          display: flex;
@@ -251,8 +268,60 @@ table{
       }
    }
    &.grey{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      padding:0;
       figure svg path{
          fill:$lightgrey;
+      }
+      .block-content{
+         height:100%;
+         width:100%;
+      }
+      a{
+         display:block;
+         height:100%;
+         width:100%;
+         color:$black;
+         transition:all $animTime ease-in-out;
+         letter-spacing: 3px;
+         overflow:hidden;
+         &:after{
+            content:'Voir la carte';
+            position:absolute;
+            top:50%;
+            left:50%;
+            background:$white;
+            color:$grey;
+            letter-spacing: 3px;
+            padding:10px 20px;
+            border:3px solid $white;
+            transform:translate(-50%,-50%);
+            white-space:nowrap;
+            z-index:2;
+            transition:all $animTime ease-in-out;
+         }
+         svg{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            width:120%;
+            path{
+               fill:$lightgrey2;
+               transition:all $animTime ease-in-out;
+            }
+         }
+         &:hover{
+            text-decoration: none;
+            svg path{
+               fill:$color1;
+            }
+            &:after{
+               opacity:1;
+            }
+         }
       }
    }
 }

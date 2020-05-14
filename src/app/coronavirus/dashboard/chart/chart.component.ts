@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -9,34 +9,81 @@ import * as Highcharts from 'highcharts';
 export class ChartComponent implements OnInit {
 
   highcharts = Highcharts;
+  @Input('serie1') confirmed: any;
+  @Input('serie2') recovered: any;
+  @Input('serie3') deaths: any;
+  @Input('axisX') axisX: any;
+  @Input('width') width: any;
+  @Input('type') type: any;
+  updateChart: boolean = false;
+
   chartOptions = {   
-     chart: {
-        type: "spline"
-     },
-     title: {
-        text: ""
-     },
-     xAxis:{
-        categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-     },
-     yAxis: {          
-        title:{
-           text:""
-        } 
-     },
-     series: [
-        {
-           name: 'Tokyo',
-           data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,26.5, 23.3, 18.3, 13.9, 9.6]
-        }
-     ]
+      chart: {
+         type: "area",
+         width : 500,
+         height: 500,
+         zoomType: 'x'
+      },
+      plotOptions: {
+         line: {
+            marker: {
+               enabled: false,
+               symbol: 'circle',
+               radius: 2,
+               states: {
+                  hover: {
+                     enabled: true
+                  }
+               }
+            }
+         }
+      },
+      title: {
+         text: ""
+      },
+      loading: true,
+      xAxis:{
+         categories:[]
+      },
+      yAxis: {          
+         title:{
+            text:""
+         } 
+      },
+      series: [
+         {
+            name: 'Confirmés',
+            data: [],
+            color: '#FFB347'
+         },
+         {
+            name: 'Rétablis',
+            data: [],
+            color: '#B0F2B6'
+         },
+         {
+            name: 'Décédés',
+            data: [],
+            color: '#C43924'
+         }
+      ]
   };
 
 
   constructor() { }
 
   ngOnInit(): void {
+   
+  }
+
+  ngOnChanges(changes: SimpleChanges){  
+   this.chartOptions.series[0]['data'] = changes.confirmed.currentValue;
+   this.chartOptions.series[1]['data'] = changes.recovered.currentValue;
+   this.chartOptions.series[2]['data'] = changes.deaths.currentValue;
+   this.chartOptions.xAxis.categories = changes.axisX.currentValue;
+   this.chartOptions.chart.width = this.width;
+   this.chartOptions.chart.type = this.type;
+   this.updateChart = true;
   }
 
 }

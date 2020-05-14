@@ -1,0 +1,54 @@
+@import "../../../../variables";
+
+section{
+    padding:20px 0;
+}
+.timeline{
+    position:relative;
+    padding:20px 0;
+    margin:0 2px;
+    padding:20px;
+    background:#fff;
+    border:1px solid $lightgrey2;
+    border-radius:10px;
+    transition:all $animTime ease-in-out;
+    .time{
+        font-size:12px;
+        border-bottom: 1px solid $lightgrey2;
+    }
+    .data{
+        display:flex;
+        align-items:center;
+        margin:10px;
+        font-size:12px;
+
+        svg{
+            width:14px;
+            height:14px;
+            margin-right:10px;
+        }
+        &.red{
+            svg path{
+                fill:#C43924;
+            }
+        }
+        &.orange{
+            svg path{
+                fill:#FFB347;
+            }
+        }
+        &.green{
+            svg path{
+                fill:#B0F2B6;
+            }
+        }
+    }
+    &:hover{
+        background:#f5f5f5;
+    }
+}
+.simplebar-content{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}

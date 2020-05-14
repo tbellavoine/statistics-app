@@ -11,9 +11,7 @@ const coronavirusRoutes: Routes = [
   { path: '', component: CoronavirusComponent, children: [
     { path: '', redirectTo:'dashboard', pathMatch: 'full'},
     { path: 'dashboard', component: DashboardComponent},
-    { path: 'worldmap', component: WorldmapComponent},
-    { path: 'definition', component: DefinitionComponent},
-    { path: 'protection', component: ProtectionComponent}
+    { path: 'worldmap', component: WorldmapComponent}
   ]}
 ];
 
