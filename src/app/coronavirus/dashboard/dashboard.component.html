@@ -1,6 +1,6 @@
 <section class="dashboard">
     <div class="row">
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xxl-3">
             <div class="block orange top">
                 <div class="block-content">
                     <figure>
@@ -17,7 +17,7 @@
                 </footer>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xxl-3">
             <div class="block green top">
                 <div class="block-content">
                     <figure>
@@ -34,7 +34,7 @@
                 </footer>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xxl-3">
             <div class="block red top">
                 <div class="block-content">
                     <figure>
@@ -51,7 +51,7 @@
                 </footer>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xxl-3">
             <div class="block grey top">
                 <div class="block-content">
                     <a (click)="fetchRoute('../worldmap')">
@@ -112,35 +112,37 @@
                     </div>
                 </header>
                 <div class="block-content">
-                    <table mat-table [dataSource]="dataSource" matSort>
-                      
-                        <!-- country Column -->
-                        <ng-container matColumnDef="name">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Pays </th>
-                          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-                        </ng-container>
-                      
-                        <!-- confirmed Column -->
-                        <ng-container matColumnDef="total_cases">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Confirmés </th>
-                          <td mat-cell *matCellDef="let row"> {{row.total_cases}} <span class="orange">+{{row.new_cases}}</span></td>
-                        </ng-container>
-                      
-                        <!-- recovered Column -->
-                        <ng-container matColumnDef="recovered">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Rétablis </th>
-                          <td mat-cell *matCellDef="let row"> {{row.recovered}} <span class="green">+{{row.new_cases}}</span></td>
-                        </ng-container>
-                      
-                        <!-- death Column -->
-                        <ng-container matColumnDef="death">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Décédés </th>
-                          <td mat-cell *matCellDef="let row"> {{row.deaths}} <span class="red">+{{row.new_cases}}</span></td>
-                        </ng-container>
-                      
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                    <ngx-simplebar [options]="options">
+                        <table mat-table [dataSource]="dataSource" matSort>
+                        
+                            <!-- country Column -->
+                            <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Pays </th>
+                            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                            </ng-container>
+                        
+                            <!-- confirmed Column -->
+                            <ng-container matColumnDef="total_cases">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Confirmés </th>
+                            <td mat-cell *matCellDef="let row"> {{row.total_cases}} <span class="orange">+{{row.new_cases}}</span></td>
+                            </ng-container>
+                        
+                            <!-- recovered Column -->
+                            <ng-container matColumnDef="recovered">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Rétablis </th>
+                            <td mat-cell *matCellDef="let row"> {{row.recovered}} <span class="green">+{{row.new_cases}}</span></td>
+                            </ng-container>
+                        
+                            <!-- death Column -->
+                            <ng-container matColumnDef="death">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Décédés </th>
+                            <td mat-cell *matCellDef="let row"> {{row.deaths}} <span class="red">+{{row.new_cases}}</span></td>
+                            </ng-container>
+                        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </ngx-simplebar>
                     <mat-paginator [pageSizeOptions]="[15, 25, 50, 100]"></mat-paginator>
                 </div>
                 <footer class="block-footer">

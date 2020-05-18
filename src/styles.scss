@@ -71,7 +71,6 @@ figure {width: 100%;}
 *{box-sizing:border-box;}
 
 /* Table */
-
 table{
    min-width:100%;
    td.mat-cell,
@@ -127,6 +126,12 @@ table{
 .content{
    padding:50px 70px 50px 170px;
    width:100%;
+   @include media-breakpoint-down(md) {
+      padding:50px;
+   }
+   @include media-breakpoint-down(sm) {
+      padding:20px;
+	}
 }
 
 .block{
@@ -140,6 +145,7 @@ table{
       display:flex !important;
       align-items:center;
       justify-content: space-between;
+      flex-wrap:wrap;
       margin-bottom:20px;
       h2{
          display:flex;
@@ -148,6 +154,10 @@ table{
          font-family: $font;
          font-size:20px !important;
          margin:0 !important;
+         @include media-breakpoint-down(sm) {
+            margin-bottom:20px !important;
+            margin-right:30px;
+         }
          span{
             padding-left:20px;
             margin-left:20px;
@@ -196,7 +206,6 @@ table{
       figure {
          width:60px;
          margin:0;
-         // border-right:1px solid $lightgrey2;
          svg{
             width:60px;
             height:60px;
@@ -323,5 +332,20 @@ table{
             }
          }
       }
+   }
+}
+
+//add column width bootstrap
+.row div.col-xxl-3 {
+   position: relative;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+}
+
+@media (min-width: 1540px) {
+   .row div.col-xxl-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
    }
 }

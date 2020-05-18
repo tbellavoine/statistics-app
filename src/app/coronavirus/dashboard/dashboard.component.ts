@@ -52,6 +52,10 @@ export class DashboardComponent implements OnInit {
     country: [null]
   });
 
+  options = {
+    direction :'rtl'
+  }
+
   constructor(private _coronaApiService:CoronaApiService,
               private formBuilder: FormBuilder,
               private router: Router,

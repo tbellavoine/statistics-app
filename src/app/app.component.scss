@@ -4,4 +4,7 @@ main{
     display:flex;
     align-self:stretch;
     min-height:100vh;
+    @include media-breakpoint-down(md) {
+        flex-direction:column;
+    }
 }

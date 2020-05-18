@@ -18,6 +18,9 @@ aside{
         bottom: 20px;
         right: -40px;
         cursor:pointer;
+        @include media-breakpoint-down(md) {
+            display:none;
+        }
         svg{
             width:30px;
             height:30px;
@@ -36,11 +39,16 @@ aside{
         margin:0;
         padding:0;
         width: 100%;
+        @include media-breakpoint-down(md) {
+            flex-direction:row;
+            align-items: stretch;
+            height:100%;
+        }
         li{
             a{
                 display:flex;
                 align-items: center;
-                padding:25px;
+                padding:0 25px;
                 color:$white;
                 text-decoration:none;
                 font-size:18px;
@@ -49,6 +57,11 @@ aside{
                 transition:all $animTime ease-in-out;
                 white-space: nowrap;
                 overflow:hidden;
+                @include media-breakpoint-down(md) {
+                    border:0;
+                    border-left:1px solid $grey2;
+                    height:100%;
+                }
                 &:after{
                     content:"";
                     position:absolute;
@@ -61,12 +74,23 @@ aside{
                     border-width: 10px 0px 10px 0;
                     border-color: transparent $whitegrey transparent transparent;
                     transition:all $animTime ease-in-out;
+                    @include media-breakpoint-down(md) {
+                        top:100%;
+                        right:50%;
+                        margin-top:-5px;
+                        margin-right:-10px;
+                        border-width: 0 10px 0 10px;
+                        border-color: transparent transparent $whitegrey transparent;
+                    }
                 }
                 svg{
                     width:40px;
                     path{
                         fill:$white;
                         transition:all $animTime ease-in-out;
+                    }
+                    @include media-breakpoint-down(md) {
+                        width:30px;
                     }
                 }
                 span{
@@ -82,6 +106,9 @@ aside{
                     color:$color1;
                     &:after{
                         border-width: 10px 7px 10px 0;
+                        @include media-breakpoint-down(md) {
+                            border-width: 0 10px 7px 10px;
+                        }
                     }
                     svg{
                         path{
@@ -93,16 +120,20 @@ aside{
             }
             &:first-child a{
                 border-top:1px solid $grey2;
+                @include media-breakpoint-down(md) {
+                    border-top:0;
+                }
             }
         }
     }
     @include media-breakpoint-down(md) {
+        position:static;
         flex-direction:row;
         justify-content: flex-start;
         align-items: flex-start;
         height: 70px;
         width: 100%;
-        border-bottom: 1px solid #333;
+        padding:0;
         transition:all 1s ease-in-out;
     }
     header{

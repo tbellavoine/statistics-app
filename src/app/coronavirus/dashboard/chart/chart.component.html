@@ -1,4 +1,6 @@
-<highcharts-chart 
-[Highcharts] = "highcharts" 
-[options] = "chartOptions" 
-[(update)]="updateChart"></highcharts-chart>
+<ngx-simplebar [options]="options">
+    <highcharts-chart 
+    [Highcharts] = "highcharts" 
+    [options] = "chartOptions" 
+    [(update)]="updateChart"></highcharts-chart>
+</ngx-simplebar>

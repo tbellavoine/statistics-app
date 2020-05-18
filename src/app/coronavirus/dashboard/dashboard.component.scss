@@ -1,13 +1,11 @@
 @import "../../../variables";
 
-app-timeline{
-    width:100%;
-    overflow: hidden;
-}
 app-chart,
 app-timeline{
     transform:scale(1);
     transition: all $animTime ease-in-out;
+    width:100%;
+    overflow: hidden;
 }
 .chartLoader{
     position:absolute;

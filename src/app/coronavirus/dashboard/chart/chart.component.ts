@@ -17,6 +17,10 @@ export class ChartComponent implements OnInit {
   @Input('type') type: any;
   updateChart: boolean = false;
 
+  options = {
+   direction :'rtl'
+   }
+
   chartOptions = {   
       chart: {
          type: "area",
@@ -66,7 +70,7 @@ export class ChartComponent implements OnInit {
             data: [],
             color: '#C43924'
          }
-      ]
+      ],
   };
 
 
